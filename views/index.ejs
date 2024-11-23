@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rumah Sakit Pemalang</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="image-background">
+        <img 
+            src="https://wallpapercave.com/wp/wp2979589.jpg" 
+            alt="Background Image" 
+            class="background-image">
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Data Rumah Sakit</h1>
+            <a href="/add" class="button add-button">Tambah Data Rumah Sakit</a>
+        </header>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama Rumah Sakit</th>
+                        <th>Pelayanan</th>
+                        <th>Kecamatan</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% items.forEach(item => { %>
+                    <tr>
+                        <td><%= item.Nama %></td>
+                        <td><%= item.Pelayanan %></td>
+                        <td><%= item.Kecamatan %></td>
+                        <td>
+                            <a href="/edit/<%= item.id %>" class="button edit-button">Edit</a>
+                            <a href="/delete/<%= item.id %>" class="button delete-button">Delete</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        /* CSS untuk video latar belakang */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            pointer-events: none; /* Agar tidak mengganggu interaksi pengguna */
+        }
+
+        /* Gaya tambahan untuk konten */
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Agar teks terlihat */
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table img.photo {
+            max-width: 50px;
+            height: auto;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #fff;
+            background: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button.add-button {
+            background: #ff66b2;
+        }
+
+        .button.edit-button {
+            background: #ffc107;
+        }
+
+        .button.delete-button {
+            background: #dc3545;
+        }
+    </style>
+</body>
+
+</html>

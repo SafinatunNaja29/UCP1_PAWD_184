@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data Rumah Sakit</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Data Alamat Rumah Sakit</h1>
+        <form action="/edit/<%= item.id %>" method="POST" enctype="multipart/form-data">
+            <label for="Nama">Nama Rumah Sakit:</label>
+            <input type="text" name="Nama" value="<%= item.Nama %>" required><br>
+            <label for="Alamat">Pelayanan:</label>
+            <textarea name="Pelayanan" required><%= item.Pelayanan %></textarea><br>
+            <label for="Kecamatan">Kecamatan:</label>
+            <input type="text" name="Kecamatan" value="<%= item.Kecamatan %>" required><br>
+            <button type="submit">Update Rumah Sakit</button>
+        </form>
+        <div class="center-button">
+            <a href="/" class="button">Back to List</a>
+        </div>
+    </div>
+</body>
+</html>
